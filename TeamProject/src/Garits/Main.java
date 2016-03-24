@@ -5,17 +5,30 @@
  */
 package Garits;
 
+import Garits.GUIForms.*;
+import Garits.*;
 /**
  *
  * @author ZX-MAC
  */
+import java.sql.*;
+
 public class Main {
 
     /**
      * @param args the command line arguments
      */
+    
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
+       //new StartUp(null,true).show();
+       //new Login().show();
+        DBConnection DBC =  new DBConnection();
+        DBC.connect();
+        DBC.AdminCreation();
     }
+    
     
 }
