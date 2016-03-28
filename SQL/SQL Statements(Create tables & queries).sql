@@ -5,7 +5,7 @@ SELECT * FROM job WHERE `JobID` = 1 and `Estimate Time` = '240' and `Actual time
 
 --A stock control system is needed to find a part, price it up, and update the stock level.
 
-SELECT * FROM stock WHERE `PartID` = 2 and `Price` = '1.30' and `Quantity` = '12';
+SELECT * FROM stock WHERE `StockID` = 2 and `Price` = '1.30' and `Quantity` = '12';
 
 --Updating database
 UPDATE `stock` SET `Year`= '2008-2012' WHERE `PartID` = 4;
@@ -18,38 +18,26 @@ INSERT INTO `vehicle`(`VehicleID`, `RegNo`, `Make`, `Model`, `EngSerial`, `Chass
 
 
 --Creating tables
-
-Create TABLE staff
-(
-StaffID int NOT NULL AUTO_INCREMENT,
-StaffPosition varchar(255) NOT NULL,
-Forename varchar(255) NOT NULL ,
-Surname varchar(255) NOT NULL,
-Address Varchar(255) NOT NULL,
-Telephone varchar(20),
-Email varchar(255),
-PRIMARY KEY (StaffID
-);
+Create DATABASE GARITS;
 
 Create TABLE Customer 
-(CustomerID int NOT NULL AUTO_INCREMENT,
-Forename varchar(255) NOT NULL,
-Surname varchar(255) NOT NULL,
-Address varchar(255) NOT NULL,
-Telephone varchar(11),
-Email varchar(255),
-CustomerType varchar(255),
+(
+CustomerID int NOT NULL AUTO_INCREMENT,
+CompanyName varchar(50),
+Title varchar(20) NOT NULL,
+Forename varchar(50) NOT NULL,
+Surname varchar(50) NOT NULL,
+HouseNoOrName varchar(50) NOT NULL,
+BuildingName varchar(50),
+StreetName varchar(50) NOT NULL,
+TownOrCity varchar(50)NOT NULL,
+Area varchar(50),
+Telephone varchar(20)NOT NULL,
+Mobile varchar(20),
+Fax varchar(20),
+Email varchar(50),
+Discount int(20),
 PRIMARY KEY (CustomerID)
-);
-
-Create TABLE Account Holder
-(
-Discount int(10) NOT NULL,
-);
-
-Create TABLE Company
-(
-CompanyName varchar(10) NOT NULL,
 );
 
 Create TABLE Vehicles 
@@ -58,54 +46,83 @@ VehicleID int NOT NULL AUTO_INCREMENT,
 RegNo varchar(10) NOT NULL, 
 Make varchar(10) NOT NULL,
 Model varchar(10) NOT NULL,
-Engserial int(9) NOT NULL,
-ChassisNo int(8) NOT NULL,
-Colour varchar(10) NOT NULL,
-FOREIGN KEY CustomerCustomerID int(10),
-PRIMARY KEY (VehicleID) 
+Engserial varchar(15) NOT NULL,
+ChassisNo varchar(15) NOT NULL,
+Colour varchar(15) NOT NULL,
+Type varchar (10) NOT NULL,
+CustomerID int NOT NULL,
+PRIMARY KEY (VehicleID), 
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
 
-
-
-Create TABLE Tasks
+Create TABLE Staff
 (
-TaskNo int NOT NULL AUTO_INCREMENT,
-Task varchar(255) NOT NULL,
-InitialStockLevel int(10) NOT NULL,
-Quantity int(10) NOT NULL,
-JobSheetJobNo int(10) NOT NULL,
-PRIMARY KEY (TaskNo)
+StaffID int NOT NULL AUTO_INCREMENT,
+Forename varchar(50) NOT NULL ,
+Surname varchar(50) NOT NULL,
+JobRole varchar(25) NOT NULL,
+Login Varchar(50) NOT NULL,
+Password varchar(20)NOT NULL,
+Email varchar(50),
+PRIMARY KEY (StaffID)
+);
+
+/* Missing Suppliers Information*/
+Create TABLE Stock
+(
+StockID int NOT NULL AUTO_INCREMENT,
+PartName varchar(100) NOT NULL,
+PartType varchar(100),
+Make varchar(50) NOT NULL,
+Model varchar(50) NOT NULL,
+Quantity int(20) NOT NULL,
+Threshold int(20) NOT NULL,
+Price float(20) NOT NULL,
+Manufacturer varchar(50),
+Year varchar(10),
+Delivery int(10),
+PRIMARY KEY (StockID)
+);
+
+Create TABLE PartNo
+(
+PartID varchar(50) NOT NULL,
+StockID int NOT NULL,
+PRIMARY KEY (PartID),
+FOREIGN KEY (StockID) REFERENCES Stock(StockID)
 );
 
 Create TABLE Jobs
-(JobID int NOT NULL AUTO_INCREMENT,
+(
+JobID int NOT NULL AUTO_INCREMENT,
 DateBookedIn date NOT NULL,
 Type varchar(10) NOT NULL,
 DescriptionOfJob varchar(255) NOT NULL,
-EstimateTime time(7) NOT NULL,
-ActualTime time(7) NOT NULL,
-DescriptionWorkCarriedOut varchar(255) NOT NULL,
-DateCompleted date NOT NULL,
-FOREIGN KEY VehiclesVehicleID int(10),
-FOREIGN KEY staffStaffID int(10),
-FOREIGN KEY CustomerCustomerID int(10),
-PRIMARY KEY (JobID)
+EstimateTime time NOT NULL,
+ActualTime time,
+DescriptionWorkCarriedOut varchar(255),
+DateCompleted date,
+VehicleID int NOT NULL,
+StaffID int NOT NULL,
+CustomerID int NOT NULL,
+PRIMARY KEY (JobID),
+FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID),
+FOREIGN KEY (StaffID) REFERENCES Staff(StaffID),
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
-Create TABLE Stock
+Create TABLE Tasks
 (
-PartID int NOT NULL AUTO_INCREMENT,
-Type varchar(255) NOT NULL,
-Name varchar(255) NOT NULL,
-Model varchar(255) NOT NULL,
-Make varchar(255) NOT NULL,
-Price double(10) NOT NULL,
-Quantity int(10) NOT NULL,
-Manufacturer varchar(255) NOT NULL,
-Year int(10) NOT NULL,
-LowLevelThreshold int(10) NOT NULL,
-Delivery int(10) NOT NULL,
-PRIMARY KEY (PartID)
+TaskID int NOT NULL AUTO_INCREMENT,
+TaskDescription varchar(255) NOT NULL,
+InitialStockLevel int(10) NOT NULL,
+QuantityUsed int(10) NOT NULL,
+JobID int NOT NULL,
+StockID int,
+PartID varchar(50),
+PRIMARY KEY (TaskID),
+FOREIGN KEY (JobID) REFERENCES Jobs(JobID),
+FOREIGN KEY (StockID) REFERENCES Stock(StockID),
+FOREIGN KEY (PartID) REFERENCES PartNo(PartID)
 );
-
