@@ -3,25 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Admin/AddUser.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Panels/AdminPanel.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Panels/FranchiseePanel.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Admin/AdminMenu.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Receptionist/RecptionistMenu.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Franchisee/DiscountPlan.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Login.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/DBConnection.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Panels/MechanicPanel.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Franchisee/AlterCustomerAccount.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/StartUp.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Franchisee/CreateCustomerAccount.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Receptionist/UserDeleted.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/MainMenu.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/Controllers/StaffController.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Panels/ForePersonPanel.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Panels/ReceptionistPanel.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Receptionist/UserLost.java</file>
-            <file>file:/Users/ZX-MAC/Documents/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/Receptionist/PrintJob.java</file>
+            <file>file:/C:/Users/vivek/Documents/City%20University/Second%20year/Team%20project/TeamProject-GARITS-System/TeamProject/src/Garits/GUIForms/StockControl/SearchStockReport.java</file>
         </group>
     </open-files>
 </project-private>
