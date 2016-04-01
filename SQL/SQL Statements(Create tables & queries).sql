@@ -16,6 +16,26 @@ DELETE FROM `vehicle` WHERE `VehicleID` = 8;
 --Insert 
 INSERT INTO `vehicle`(`VehicleID`, `RegNo`, `Make`, `Model`, `EngSerial`, `ChassisNo`, `Colour`, `CustomerID`) VALUES (8,'DF05 POT', 'Opel', 'Vectra Estate', '567437965', '34672876', 'Blue', 4);
 
+--Customer Vehicle Record
+SELECT DISTINCT VehicleID, RegNo, Make, Engserial, ChassisNo, Colour, Type, Vehicles.CustomerID
+	FROM Vehicles
+	INNER JOIN Customer
+	ON Vehicles.CustomerID = Customer.CustomerID
+	WHERE Vehicles.CustomerID = 3;
+
+--Job Sheet --RegNO, make, model, telNo, part name, PartNo qty
+SELECT Jobs.JobID, Jobs.DateBookedIn, Jobs.DescriptionOfJob, Jobs.EstimateTime, Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut,Jobs.DateCompleted,Customer.Forename,Customer.Surname,Customer.Telephone
+FROM Jobs
+INNER JOIN Customer
+ON Jobs.CustomerID = Customer.CustomerID
+WHERE Jobs.CustomerID = 1;
+
+SELECT Jobs.JobID, Jobs.DateBookedIn, Jobs.DescriptionOfJob, Jobs.EstimateTime, Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut,Jobs.DateCompleted,Customer.Forename,Customer.Surname,Customer.Telephone
+FROM Jobs
+INNER JOIN Customer
+ON Jobs.CustomerID = Customer.CustomerID
+WHERE Jobs.CustomerID = 1;
+
 
 --Creating tables
 Create DATABASE GARITS;
@@ -110,10 +130,10 @@ Fax varchar(20),
 PRIMARY KEY (SupplierID)
 );
 
-Create TABLE Order
+Create TABLE Orders
 (
 OrderID int NOT NULL AUTO_INCREMENT,
-Quantity int NOT NULL,
+OrderQuantity int(20) NOT NULL,
 StockID int NOT NULL,
 SupplierID int NOT NULL,
 PRIMARY KEY (OrderID),
