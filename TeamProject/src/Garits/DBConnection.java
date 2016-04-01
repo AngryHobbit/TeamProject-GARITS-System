@@ -65,7 +65,7 @@ public class DBConnection {
             Statement sta = DBConnection.createStatement();
             String insert ="INSERT INTO User (Username,Password) VALUES('"+Username+"','"+password+"');";
             sta.executeUpdate(insert);
-            JOptionPane.showMessageDialog(null,"Account has been Registered");
+            
             //System.out.println("Account has been registered");
         }
         catch(Exception e)
