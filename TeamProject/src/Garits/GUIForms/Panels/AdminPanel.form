@@ -97,6 +97,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Add User"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddUserActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="FindUser">
           <Properties>
@@ -134,10 +137,8 @@
                   <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="ArchiveButton" pref="150" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="BackUpButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="RestoreButton" alignment="0" pref="150" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="BackUpButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="RestoreButton" alignment="0" pref="150" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="165" max="32767" attributes="0"/>
               </Group>

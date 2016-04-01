@@ -107,15 +107,16 @@ public class MainMenu extends javax.swing.JFrame {
 
      private void addPanel(){
         AdminPanel Adpane = new AdminPanel();
-       //getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 500, 390));
+       getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 500, 390));
        
        FranchiseePanel Frpane = new FranchiseePanel();
        //getContentPane().add(Frpane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 790, 390));
        
        MechanicPanel Mepane = new MechanicPanel();
-       getContentPane().add(Mepane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
+       //getContentPane().add(Mepane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
+       
        ReceptionistPanel Repane = new ReceptionistPanel();
-       getContentPane().add(Repane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
+       //getContentPane().add(Repane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
         
     }
 

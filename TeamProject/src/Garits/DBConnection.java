@@ -54,7 +54,7 @@ public class DBConnection {
         return DBConnection;
     }
     
-    public void writeToDatabase(String Username,String password)
+    public void writeToDatabase(String Login,String password)
     {
         try
         {
@@ -63,7 +63,7 @@ public class DBConnection {
             System.out.println("Connection Passed");
             
             Statement sta = DBConnection.createStatement();
-            String insert ="INSERT INTO User (Username,Password) VALUES('"+Username+"','"+password+"');";
+            String insert ="INSERT INTO Staff (Forename,Surname,JobRole,Login,Password) VALUES('Admin','Admin','Administrator','"+Login+"','"+password+"');";
             sta.executeUpdate(insert);
             
             //System.out.println("Account has been registered");
@@ -81,7 +81,7 @@ public class DBConnection {
         try {
             
             // Create a string value storing a sql statement.
-            String Query = "Select Count(*) From User";
+            String Query = "Select Count(*) From Staff";
             
             //Store record number
             int record = 0;
@@ -98,7 +98,7 @@ public class DBConnection {
                 
             }
 
-            if(record == 1)
+            if(record >= 1)
             {
                 System.out.println("Login page has loaded up on screen");
                 new Login().show();

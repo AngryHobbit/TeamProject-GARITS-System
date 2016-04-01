@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Garits.GUIForms.Panels;
-
+import Garits.GUIForms.Admin.*;
 /**
  *
  * @author ZX-MAC
@@ -53,6 +53,11 @@ public class AdminPanel extends javax.swing.JPanel {
         Accounts.setPreferredSize(new java.awt.Dimension(369, 126));
 
         AddUser.setText("Add User");
+        AddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddUserActionPerformed(evt);
+            }
+        });
 
         FindUser.setText("Find User");
 
@@ -104,9 +109,8 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addGap(161, 161, 161)
                 .addGroup(DatabaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ArchiveButton, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addGroup(DatabaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(BackUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RestoreButton, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                    .addComponent(BackUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RestoreButton, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
         DatabaseLayout.setVerticalGroup(
@@ -127,6 +131,13 @@ public class AdminPanel extends javax.swing.JPanel {
     private void BackUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackUpButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BackUpButtonActionPerformed
+
+    private void AddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserActionPerformed
+        // TODO add your handling code here:
+        AddUser addU = new AddUser();
+        addU.show();
+        
+    }//GEN-LAST:event_AddUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

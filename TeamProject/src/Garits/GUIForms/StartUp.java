@@ -50,7 +50,6 @@ public class StartUp extends javax.swing.JDialog {
         setTitle("GARITS");
         setBounds(new java.awt.Rectangle(0, 0, 600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
