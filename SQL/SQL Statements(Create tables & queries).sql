@@ -30,9 +30,10 @@ Surname varchar(50) NOT NULL,
 HouseNoOrName varchar(50) NOT NULL,
 BuildingName varchar(50),
 StreetName varchar(50) NOT NULL,
-TownOrCity varchar(50)NOT NULL,
+TownOrCity varchar(50),
 Area varchar(50),
-Telephone varchar(20)NOT NULL,
+Postcode varchar(20)NOT NULL,
+Telephone varchar(20),
 Mobile varchar(20),
 Fax varchar(20),
 Email varchar(50),
@@ -45,9 +46,9 @@ Create TABLE Vehicles
 VehicleID int NOT NULL AUTO_INCREMENT,
 RegNo varchar(10) NOT NULL, 
 Make varchar(10) NOT NULL,
-Model varchar(10) NOT NULL,
-Engserial varchar(15) NOT NULL,
-ChassisNo varchar(15) NOT NULL,
+Model varchar(10),
+Engserial varchar(15),
+ChassisNo varchar(15),
 Colour varchar(15) NOT NULL,
 Type varchar (10) NOT NULL,
 CustomerID int NOT NULL,
@@ -62,20 +63,21 @@ StaffID int NOT NULL AUTO_INCREMENT,
 Forename varchar(50) NOT NULL ,
 Surname varchar(50) NOT NULL,
 JobRole varchar(25) NOT NULL,
+LabourRate int(20),
 Login Varchar(50) NOT NULL,
 Password varchar(20)NOT NULL,
-Email varchar(50),
 PRIMARY KEY (StaffID)
 );
 
-/* Missing Suppliers Information*/
+
+
 Create TABLE Stock
 (
 StockID int NOT NULL AUTO_INCREMENT,
 PartName varchar(100) NOT NULL,
 PartType varchar(100),
-Make varchar(50) NOT NULL,
-Model varchar(50) NOT NULL,
+Make varchar(50)NOT NULL,
+Model varchar(50)NOT NULL,
 Quantity int(20) NOT NULL,
 Threshold int(20) NOT NULL,
 Price float(20) NOT NULL,
@@ -91,6 +93,32 @@ PartID varchar(50) NOT NULL,
 StockID int NOT NULL,
 PRIMARY KEY (PartID),
 FOREIGN KEY (StockID) REFERENCES Stock(StockID)
+);
+
+Create TABLE Suppliers
+(
+SupplierID int NOT NULL AUTO_INCREMENT,
+CompanyName varchar(50),
+HouseNoOrName varchar(50) NOT NULL,
+BuildingName varchar(50),
+StreetName varchar(50) NOT NULL,
+TownOrCity varchar(50),
+Area varchar(50),
+Postcode varchar(20)NOT NULL,
+Telephone varchar(20),
+Fax varchar(20),
+PRIMARY KEY (SupplierID)
+);
+
+Create TABLE Order
+(
+OrderID int NOT NULL AUTO_INCREMENT,
+Quantity int NOT NULL,
+StockID int NOT NULL,
+SupplierID int NOT NULL,
+PRIMARY KEY (OrderID),
+FOREIGN KEY (StockID) REFERENCES Stock(StockID),
+FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
 );
 
 Create TABLE Jobs
@@ -116,8 +144,8 @@ Create TABLE Tasks
 (
 TaskID int NOT NULL AUTO_INCREMENT,
 TaskDescription varchar(255) NOT NULL,
-InitialStockLevel int(10) NOT NULL,
-QuantityUsed int(10) NOT NULL,
+InitialStockLevel int(10),
+QuantityUsed int(10),
 JobID int NOT NULL,
 StockID int,
 PartID varchar(50),
