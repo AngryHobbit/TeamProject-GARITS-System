@@ -107,7 +107,7 @@ public class MainMenu extends javax.swing.JFrame {
 
      private void addPanel(){
         AdminPanel Adpane = new AdminPanel();
-       getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 500, 390));
+       getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 790, 390));
        
        FranchiseePanel Frpane = new FranchiseePanel();
        //getContentPane().add(Frpane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 790, 390));
