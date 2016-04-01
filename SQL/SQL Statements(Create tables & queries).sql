@@ -16,6 +16,12 @@ DELETE FROM `vehicle` WHERE `VehicleID` = 8;
 --Insert 
 INSERT INTO `vehicle`(`VehicleID`, `RegNo`, `Make`, `Model`, `EngSerial`, `ChassisNo`, `Colour`, `CustomerID`) VALUES (8,'DF05 POT', 'Opel', 'Vectra Estate', '567437965', '34672876', 'Blue', 4);
 
+--Customer Vehicle Record
+SELECT * 
+FROM Vehicles
+INNER JOIN Customer 
+ON Vehicles.CustomerID  =  Customer.CustomerID
+Where Customer.CustomerID = 3;
 
 --Creating tables
 Create DATABASE GARITS;
@@ -64,7 +70,6 @@ Surname varchar(50) NOT NULL,
 JobRole varchar(25) NOT NULL,
 Login Varchar(50) NOT NULL,
 Password varchar(20)NOT NULL,
-Email varchar(50),
 PRIMARY KEY (StaffID)
 );
 
@@ -104,7 +109,7 @@ ActualTime time,
 DescriptionWorkCarriedOut varchar(255),
 DateCompleted date,
 VehicleID int NOT NULL,
-StaffID int NOT NULL,
+StaffID int,
 CustomerID int NOT NULL,
 PRIMARY KEY (JobID),
 FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID),
