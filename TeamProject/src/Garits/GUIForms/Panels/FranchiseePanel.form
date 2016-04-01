@@ -91,15 +91,9 @@
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="CreateReportButton" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="SearchReportButton" min="-2" pref="172" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="SearchReportButton" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="PrintReportButton" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="PrintReportButton" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -118,9 +112,9 @@
                           <Component id="PrintReportButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CreateJobButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="CreateInvoiceButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="CreateJobButton" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
