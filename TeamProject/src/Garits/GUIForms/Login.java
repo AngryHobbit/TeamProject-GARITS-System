@@ -22,6 +22,7 @@ public class Login extends javax.swing.JFrame {
     Connection conn = new DBConnection().connect();
     public Login() {
         initComponents();
+        
     }
 
     /**
@@ -102,6 +103,7 @@ public class Login extends javax.swing.JFrame {
 
             if(rs.next())
             {
+                
                 this.dispose();
                 MainMenu mm = new MainMenu();
                 mm.show();

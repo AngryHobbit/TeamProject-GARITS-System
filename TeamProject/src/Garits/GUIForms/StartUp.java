@@ -37,6 +37,7 @@ public class StartUp extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,7 +50,7 @@ public class StartUp extends javax.swing.JDialog {
         setTitle("GARITS");
         setBounds(new java.awt.Rectangle(0, 0, 600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -76,7 +77,7 @@ public class StartUp extends javax.swing.JDialog {
                 RegisterButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(RegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 140, 40));
+        getContentPane().add(RegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 140, 40));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 230, 30));
 
         jUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +88,7 @@ public class StartUp extends javax.swing.JDialog {
         getContentPane().add(jUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 230, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/LogoSmall.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,7 +102,8 @@ public class StartUp extends javax.swing.JDialog {
         
         DBConnection DBC = new DBConnection();
         DBC.writeToDatabase(jUsername.getText(), jPassword.getText());
-       
+        JOptionPane.showMessageDialog(null,"Account has been Registered");
+        this.dispose();
 
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
@@ -156,6 +158,7 @@ public class StartUp extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPassword;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jUsername;
     // End of variables declaration//GEN-END:variables
 }
