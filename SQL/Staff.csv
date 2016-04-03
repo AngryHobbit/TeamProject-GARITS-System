@@ -1,6 +1,6 @@
-1,Adminostrator,Role,Administrator,SYSDBA,Masterkey
-2,Penelope,Carr,Receptionist,Penelope,PinkMobile
-3,Sunny,Evans,Foreman,Sunny,Attitude
-4,Glynne,Lancaster,Franchisee,Glynne,Gnasher
-5,Gavin,Ross,Mechanic,Gavin,LondonWeight
-6,Anthony,Wild,Mechanic,Anthony,MelodyMan
+1,Adminostrator,Role,Administrator,,SYSDBA,Masterkey
+2,Penelope,Carr,Receptionist,,Penelope,PinkMobile
+3,Sunny,Evans,Foreman,,Sunny,Attitude
+4,Glynne,Lancaster,Franchisee,,Glynne,Gnasher
+5,Gavin,Ross,Mechanic,100.05,Gavin,LondonWeight
+6,Anthony,Wild,Mechanic,120.25,Anthony,MelodyMan

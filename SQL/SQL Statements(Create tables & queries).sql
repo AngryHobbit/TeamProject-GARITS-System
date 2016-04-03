@@ -23,13 +23,7 @@ SELECT DISTINCT VehicleID, RegNo, Make, Engserial, ChassisNo, Colour, Type, Vehi
 	ON Vehicles.CustomerID = Customer.CustomerID
 	WHERE Vehicles.CustomerID = 3;
 
---Job Sheet , part name, PartNo qty
-SELECT Jobs.JobID, Jobs.DateBookedIn, Jobs.DescriptionOfJob, Jobs.EstimateTime, Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut,Jobs.DateCompleted,Customer.Forename,Customer.Surname,Customer.Telephone
-FROM Jobs
-INNER JOIN Customer
-ON Jobs.CustomerID = Customer.CustomerID
-WHERE Jobs.CustomerID = 1;
-
+--Job Sheet
 SELECT Jobs.JobID, Jobs.DateBookedIn, 
 Jobs.DescriptionOfJob, Jobs.EstimateTime, 
 Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut, 
@@ -42,10 +36,29 @@ JOIN vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 WHERE Jobs.CustomerID = 1 AND Jobs.VehicleID = 1;
 
-SELECT CustomerID FROM Jobs
-UNION ALL
-SELECT CustomerID FROM Customer
-WHERE CustomerID = 1;
+SELECT Jobs.JobID, Tasks.TaskDescription, Tasks.PartID, Tasks.QuantityUsed
+From Jobs
+JOIN Tasks
+ON Jobs.JobID = Tasks.JobID
+WHERE Jobs.JobID = 1;
+
+--Statments separated works better
+SELECT Jobs.JobID, Jobs.DateBookedIn, 
+Jobs.DescriptionOfJob, Jobs.EstimateTime, 
+Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut, 
+Jobs.DateCompleted,Customer.Forename,Customer.Surname,
+Customer.Telephone, Vehicles.RegNo , Vehicles.Make, Vehicles.Model,
+Tasks.TaskDescription, Tasks.PartID, Tasks.QuantityUsed
+FROM Jobs
+JOIN Customer
+ON Jobs.CustomerID = Customer.CustomerID
+JOIN Vehicles
+ON Customer.CustomerID = vehicles.CustomerID
+JOIN Tasks
+ON Jobs.JobID = Tasks.JobID
+WHERE Jobs.CustomerID = 1 AND Jobs.VehicleID = 1 AND Jobs.JobID = 1;
+
+--Invoice
 
 
 --Creating tables
