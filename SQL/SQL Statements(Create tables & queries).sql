@@ -23,18 +23,29 @@ SELECT DISTINCT VehicleID, RegNo, Make, Engserial, ChassisNo, Colour, Type, Vehi
 	ON Vehicles.CustomerID = Customer.CustomerID
 	WHERE Vehicles.CustomerID = 3;
 
---Job Sheet --RegNO, make, model, telNo, part name, PartNo qty
+--Job Sheet , part name, PartNo qty
 SELECT Jobs.JobID, Jobs.DateBookedIn, Jobs.DescriptionOfJob, Jobs.EstimateTime, Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut,Jobs.DateCompleted,Customer.Forename,Customer.Surname,Customer.Telephone
 FROM Jobs
 INNER JOIN Customer
 ON Jobs.CustomerID = Customer.CustomerID
 WHERE Jobs.CustomerID = 1;
 
-SELECT Jobs.JobID, Jobs.DateBookedIn, Jobs.DescriptionOfJob, Jobs.EstimateTime, Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut,Jobs.DateCompleted,Customer.Forename,Customer.Surname,Customer.Telephone
+SELECT Jobs.JobID, Jobs.DateBookedIn, 
+Jobs.DescriptionOfJob, Jobs.EstimateTime, 
+Jobs.ActualTime, Jobs.DescriptionWorkCarriedOut, 
+Jobs.DateCompleted,Customer.Forename,Customer.Surname,
+Customer.Telephone, Vehicles.RegNo , Vehicles.Make, Vehicles.Model
 FROM Jobs
-INNER JOIN Customer
+JOIN Customer
 ON Jobs.CustomerID = Customer.CustomerID
-WHERE Jobs.CustomerID = 1;
+JOIN vehicles
+ON Customer.CustomerID = vehicles.CustomerID
+WHERE Jobs.CustomerID = 1 AND Jobs.VehicleID = 1;
+
+SELECT CustomerID FROM Jobs
+UNION ALL
+SELECT CustomerID FROM Customer
+WHERE CustomerID = 1;
 
 
 --Creating tables
@@ -136,6 +147,7 @@ OrderID int NOT NULL AUTO_INCREMENT,
 OrderQuantity int(20) NOT NULL,
 StockID int NOT NULL,
 SupplierID int NOT NULL,
+Price float(20) NOT NULL,
 PRIMARY KEY (OrderID),
 FOREIGN KEY (StockID) REFERENCES Stock(StockID),
 FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)

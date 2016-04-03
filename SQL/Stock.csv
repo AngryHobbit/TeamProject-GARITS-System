@@ -3,9 +3,12 @@
 3,Engine Mounts,Set,All,All,6,4,15,NULL,NULL,NULL
 4,Spark Plugs,Each,All,All,23,20,1.5,NULL,NULL,NULL
 5,Spark Leads,Set,All,All,16,10,12.5,NULL,NULL,NULL
-6,Distributor Cap,,Ford,All,10,5,35,NULL,NULL,NULL
+6,Distributor Cap,NULL,Ford,All,10,5,35,NULL,NULL,NULL
 7,Paint,Arrogant Red,All,All,3,2,60,Slap-it-on Paints,NULL,NULL
 8,Interior Bulb,NULL,Rolls Royce,All,2,1,118,Swtich-it-on,NULL,NULL
 9,Motor Oil,NULL,All,All,30,25,25,NULL,NULL,NULL
 10,Oil Filter,NULL,All,All,16,15,10,NULL,NULL,NULL
 11,Air Filter,NULL,All,All,15,10,15,NULL,NULL,NULL
+12,Head Gasket,NULL,All,All,7,6,15.75,NULL,NULL,NULL
+13,Valves,NULL,All,All,10,5,5.15,NULL,NULL,NULL
+14,Grommet Seal,NULL,All,All,15,10,0.67,NULL,NULL,NULL
