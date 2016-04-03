@@ -34,7 +34,7 @@ JOIN Customer
 ON Jobs.CustomerID = Customer.CustomerID
 JOIN vehicles
 ON Customer.CustomerID = vehicles.CustomerID
-WHERE Jobs.CustomerID = 1 AND Jobs.VehicleID = 1;
+WHERE Jobs.JobID = 1;
 
 SELECT Jobs.JobID, Tasks.TaskDescription, Tasks.PartID, Tasks.QuantityUsed
 From Jobs
@@ -56,10 +56,27 @@ JOIN Vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 JOIN Tasks
 ON Jobs.JobID = Tasks.JobID
-WHERE Jobs.CustomerID = 1 AND Jobs.VehicleID = 1 AND Jobs.JobID = 1;
+WHERE Jobs.JobID = 1;
 
 --Invoice
+SELECT Jobs.JobID, 
+Jobs.DescriptionWorkCarriedOut, 
+Customer.Forename, Customer.Surname, 
+Vehicles.RegNo, Vehicles.Make, Vehicles.Model
+FROM Jobs
+JOIN Customer
+ON Jobs.CustomerID = Customer.CustomerID
+JOIN vehicles
+ON Customer.CustomerID = vehicles.CustomerID
+WHERE Jobs.JobID = 1;
 
+SELECT Jobs.JobID, Stock.PartName, Tasks.PartID, Stock.Price, Tasks.QuantityUsed, --SUM(Stock.price) AS Total --This works but stops displaying all values
+From Jobs
+JOIN Tasks
+ON Jobs.JobID = Tasks.JobID
+JOIN Stock
+ON Tasks.StockID = Stock.StockID
+WHERE Jobs.JobID = 1;
 
 --Creating tables
 Create DATABASE GARITS;
