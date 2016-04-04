@@ -5,6 +5,17 @@
  */
 package Garits.GUIForms.Panels;
 
+import Garits.GUIForms.Stock.AddPart;
+import Garits.GUIForms.Stock.ChangeThresholdLevel;
+import Garits.GUIForms.Stock.CreatePartsOrder;
+import Garits.GUIForms.Stock.FindPart;
+import Garits.GUIForms.Stock.PrintPartsOrder;
+import Garits.GUIForms.Stock.RemovePart;
+import Garits.GUIForms.Stock.SearchPartsOrder;
+import Garits.GUIForms.StockControl.CreateStockReport;
+import Garits.GUIForms.StockControl.PrintStockReport;
+import Garits.GUIForms.StockControl.SearchStockReport;
+
 /**
  *
  * @author Akash
@@ -28,19 +39,19 @@ public class StockPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        FindPartButton = new javax.swing.JButton();
+        AddPartButton = new javax.swing.JButton();
+        RemovePartButton = new javax.swing.JButton();
+        ThresholdLevelButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        CreatePartsOrderButton = new javax.swing.JButton();
+        SearchPartsOrderButton = new javax.swing.JButton();
+        PrintPartsOrderButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        SearchStockReportButton = new javax.swing.JButton();
+        PrintStockReportButton = new javax.swing.JButton();
+        UpdateStockReportButton = new javax.swing.JButton();
+        CreateStockReportButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,21 +59,31 @@ public class StockPanel extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setText("Find Part");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FindPartButton.setText("Find Part");
+        FindPartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FindPartButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Add Part");
-
-        jButton3.setText("Remove Part");
-
-        jButton4.setText("Threshold Level");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        AddPartButton.setText("Add Part");
+        AddPartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                AddPartButtonActionPerformed(evt);
+            }
+        });
+
+        RemovePartButton.setText("Remove Part");
+        RemovePartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemovePartButtonActionPerformed(evt);
+            }
+        });
+
+        ThresholdLevelButton.setText("Threshold Level");
+        ThresholdLevelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThresholdLevelButtonActionPerformed(evt);
             }
         });
 
@@ -74,13 +95,13 @@ public class StockPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddPartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(FindPartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RemovePartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(ThresholdLevelButton)))
                 .addGap(36, 36, 36))
         );
         jPanel1Layout.setVerticalGroup(
@@ -88,27 +109,37 @@ public class StockPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(FindPartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddPartButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(RemovePartButton)
+                    .addComponent(ThresholdLevelButton))
                 .addGap(30, 30, 30))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton5.setText("Create Parts Order");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        CreatePartsOrderButton.setText("Create Parts Order");
+        CreatePartsOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                CreatePartsOrderButtonActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Search Parts Order");
+        SearchPartsOrderButton.setText("Search Parts Order");
+        SearchPartsOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchPartsOrderButtonActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Print Parts Order");
+        PrintPartsOrderButton.setText("Print Parts Order");
+        PrintPartsOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintPartsOrderButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -119,12 +150,12 @@ public class StockPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7)
+                        .addComponent(PrintPartsOrderButton)
                         .addGap(97, 97, 97))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(CreatePartsOrderButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
+                        .addComponent(SearchPartsOrderButton)
                         .addGap(0, 12, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -132,25 +163,35 @@ public class StockPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(CreatePartsOrderButton)
+                    .addComponent(SearchPartsOrderButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addComponent(PrintPartsOrderButton)
                 .addGap(30, 30, 30))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton9.setText("Search Stock Report");
-
-        jButton10.setText("Print Stock Report");
-
-        jButton11.setText("Update Stock Report");
-
-        jButton8.setText("Create Stock Report");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        SearchStockReportButton.setText("Search Stock Report");
+        SearchStockReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                SearchStockReportButtonActionPerformed(evt);
+            }
+        });
+
+        PrintStockReportButton.setText("Print Stock Report");
+        PrintStockReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintStockReportButtonActionPerformed(evt);
+            }
+        });
+
+        UpdateStockReportButton.setText("Update Stock Report");
+
+        CreateStockReportButton.setText("Create Stock Report");
+        CreateStockReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateStockReportButtonActionPerformed(evt);
             }
         });
 
@@ -161,12 +202,12 @@ public class StockPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PrintStockReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateStockReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(UpdateStockReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SearchStockReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
         );
         jPanel3Layout.setVerticalGroup(
@@ -174,12 +215,12 @@ public class StockPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton8))
+                    .addComponent(SearchStockReportButton)
+                    .addComponent(CreateStockReportButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton10))
+                    .addComponent(UpdateStockReportButton)
+                    .addComponent(PrintStockReportButton))
                 .addGap(22, 22, 22))
         );
 
@@ -243,35 +284,79 @@ public class StockPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void FindPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindPartButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        FindPart findP = new FindPart();
+        findP.show();
+    }//GEN-LAST:event_FindPartButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void ThresholdLevelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThresholdLevelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        ChangeThresholdLevel changeT = new ChangeThresholdLevel();
+        changeT.show();
+    }//GEN-LAST:event_ThresholdLevelButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void CreatePartsOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatePartsOrderButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        CreatePartsOrder createPo = new CreatePartsOrder();
+        createPo.show();
+    }//GEN-LAST:event_CreatePartsOrderButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void CreateStockReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateStockReportButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+        CreateStockReport createSr = new CreateStockReport();
+        createSr.show();
+    }//GEN-LAST:event_CreateStockReportButtonActionPerformed
+
+    private void AddPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPartButtonActionPerformed
+        // TODO add your handling code here:
+        AddPart addP = new AddPart();
+        addP.show();
+    }//GEN-LAST:event_AddPartButtonActionPerformed
+
+    private void RemovePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemovePartButtonActionPerformed
+        // TODO add your handling code here:
+        RemovePart removeP = new RemovePart();
+        removeP.show();
+    }//GEN-LAST:event_RemovePartButtonActionPerformed
+
+    private void SearchPartsOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchPartsOrderButtonActionPerformed
+        // TODO add your handling code here:
+        SearchPartsOrder searchPo = new SearchPartsOrder();
+        searchPo.show();
+    }//GEN-LAST:event_SearchPartsOrderButtonActionPerformed
+
+    private void PrintPartsOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintPartsOrderButtonActionPerformed
+        // TODO add your handling code here:
+        PrintPartsOrder printPo = new PrintPartsOrder();
+        printPo.show();
+    }//GEN-LAST:event_PrintPartsOrderButtonActionPerformed
+
+    private void SearchStockReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchStockReportButtonActionPerformed
+        // TODO add your handling code here:
+        SearchStockReport searchSr = new SearchStockReport();
+        searchSr.show();
+    }//GEN-LAST:event_SearchStockReportButtonActionPerformed
+
+    private void PrintStockReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintStockReportButtonActionPerformed
+        // TODO add your handling code here:
+        PrintStockReport printSr = new PrintStockReport();
+        printSr.show();
+    }//GEN-LAST:event_PrintStockReportButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton AddPartButton;
+    private javax.swing.JButton CreatePartsOrderButton;
+    private javax.swing.JButton CreateStockReportButton;
+    private javax.swing.JButton FindPartButton;
+    private javax.swing.JButton PrintPartsOrderButton;
+    private javax.swing.JButton PrintStockReportButton;
+    private javax.swing.JButton RemovePartButton;
+    private javax.swing.JButton SearchPartsOrderButton;
+    private javax.swing.JButton SearchStockReportButton;
+    private javax.swing.JButton ThresholdLevelButton;
+    private javax.swing.JButton UpdateStockReportButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

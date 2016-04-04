@@ -5,6 +5,10 @@
  */
 package Garits.GUIForms.Panels;
 
+import Garits.GUIForms.Receptionist.CreateJob;
+import Garits.GUIForms.Receptionist.FindJob;
+import Garits.GUIForms.Receptionist.PrintJob;
+
 /**
  *
  * @author ZX-MAC
@@ -71,6 +75,11 @@ public class ReceptionistPanel extends javax.swing.JPanel {
         });
 
         PrintJobButton.setText("Print Job");
+        PrintJobButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintJobButtonActionPerformed(evt);
+            }
+        });
 
         CreateInvoiceButton.setText("CreateInvoice");
 
@@ -150,6 +159,11 @@ public class ReceptionistPanel extends javax.swing.JPanel {
         StockControl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setText("LaunchStockManager");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout StockControlLayout = new javax.swing.GroupLayout(StockControl);
         StockControl.setLayout(StockControlLayout);
@@ -173,15 +187,29 @@ public class ReceptionistPanel extends javax.swing.JPanel {
 
     private void CreateJobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateJobButtonActionPerformed
         // TODO add your handling code here:
+        CreateJob createJ = new CreateJob();
+        createJ.show();
     }//GEN-LAST:event_CreateJobButtonActionPerformed
 
     private void SearchJobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchJobButtonActionPerformed
         // TODO add your handling code here:
+        FindJob findJ = new FindJob();
+        findJ.show();
     }//GEN-LAST:event_SearchJobButtonActionPerformed
 
     private void PrintInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintInvoiceButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PrintInvoiceButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void PrintJobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintJobButtonActionPerformed
+        // TODO add your handling code here:
+        PrintJob printJ = new PrintJob();
+        printJ.show();
+    }//GEN-LAST:event_PrintJobButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

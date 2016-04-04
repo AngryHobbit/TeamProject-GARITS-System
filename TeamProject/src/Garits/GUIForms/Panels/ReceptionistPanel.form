@@ -160,6 +160,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Print Job"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrintJobButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CreateInvoiceButton">
           <Properties>
@@ -235,6 +238,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="LaunchStockManager"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
