@@ -17,7 +17,8 @@ DELETE FROM `vehicle` WHERE `VehicleID` = 8;
 INSERT INTO `vehicle`(`VehicleID`, `RegNo`, `Make`, `Model`, `EngSerial`, `ChassisNo`, `Colour`, `CustomerID`) VALUES (8,'DF05 POT', 'Opel', 'Vectra Estate', '567437965', '34672876', 'Blue', 4);
 
 --Customer Vehicle Record
-SELECT DISTINCT VehicleID, RegNo, Make, Engserial, ChassisNo, Colour, Type, Vehicles.CustomerID
+SELECT DISTINCT Vehicles.VehicleID, Vehicles.RegNo, Vehicles.Make, Vehicles.Engserial, 
+Vehicles.ChassisNo, Vehicles.Colour, Vehicles.Type, Vehicles.CustomerID
 	FROM Vehicles
 	INNER JOIN Customer
 	ON Vehicles.CustomerID = Customer.CustomerID
@@ -36,10 +37,12 @@ JOIN vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 WHERE Jobs.JobID = 1;
 
-SELECT Jobs.JobID, Tasks.TaskDescription, Tasks.PartID, Tasks.QuantityUsed
+SELECT Jobs.JobID, Tasks.TaskDescription, Stock.PartID, Tasks.QuantityUsed
 From Jobs
 JOIN Tasks
 ON Jobs.JobID = Tasks.JobID
+JOIN Stock
+ON Tasks.StockID = Stock.StockID
 WHERE Jobs.JobID = 1;
 
 --Statments separated works better
@@ -70,13 +73,37 @@ JOIN vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 WHERE Jobs.JobID = 1;
 
-SELECT Jobs.JobID, Stock.PartName, Tasks.PartID, Stock.Price, Tasks.QuantityUsed, --SUM(Stock.price) AS Total --This works but stops displaying all values
+SELECT Jobs.JobID, Stock.PartName, Stock.PartID, Stock.Price, Tasks.QuantityUsed 
+FROM Jobs
+JOIN Tasks
+ON Jobs.JobID = Tasks.JobID
+JOIN Stock
+ON Tasks.StockID = Stock.StockID
+WHERE Jobs.JobID = 1;
+
+--This works but stops displaying all values
+SELECT Jobs.JobID, Stock.PartName, Stock.PartID, Stock.Price, Tasks.QuantityUsed,SUM(Stock.price) AS Total
 From Jobs
 JOIN Tasks
 ON Jobs.JobID = Tasks.JobID
 JOIN Stock
 ON Tasks.StockID = Stock.StockID
 WHERE Jobs.JobID = 1;
+
+--Stock Ledger
+ SELECT Stock.PartName, Stock.PartID, Stock.Manufacturer, Stock.Model, Stock.Year, Stock.Price, Stock.Quantity
+ FROM Stock;
+
+ --Spare Parts Report
+SELECT Stock.PartName, Stock.PartID, Stock.Manufacturer, Stock.Model, 
+Stock.Year, Stock.Price, Tasks.InitialStockLevel, Tasks.QuantityUsed, Stock.Quantity,
+Stock.Threshold
+FROM Tasks
+JOIN Stock
+ON Tasks.StockID = Stock.StockID
+JOIN Jobs
+ON Tasks.JobID = Jobs.JobID
+WHERE Tasks.JobID = 1;
 
 --Creating tables
 Create DATABASE GARITS;
@@ -145,16 +172,10 @@ Price float(20) NOT NULL,
 Manufacturer varchar(50),
 Year varchar(10),
 Delivery int(10),
+PartID varchar(50),
 PRIMARY KEY (StockID)
 );
 
-Create TABLE PartNo
-(
-PartID varchar(50) NOT NULL,
-StockID int NOT NULL,
-PRIMARY KEY (PartID),
-FOREIGN KEY (StockID) REFERENCES Stock(StockID)
-);
 
 Create TABLE Suppliers
 (
@@ -175,7 +196,7 @@ Create TABLE Orders
 (
 OrderID int NOT NULL AUTO_INCREMENT,
 OrderQuantity int(20) NOT NULL,
-StockID int NOT NULL,
+StockID int,
 SupplierID int NOT NULL,
 Price float(20) NOT NULL,
 PRIMARY KEY (OrderID),
@@ -210,9 +231,7 @@ InitialStockLevel int(10),
 QuantityUsed int(10),
 JobID int NOT NULL,
 StockID int,
-PartID varchar(50),
 PRIMARY KEY (TaskID),
 FOREIGN KEY (JobID) REFERENCES Jobs(JobID),
-FOREIGN KEY (StockID) REFERENCES Stock(StockID),
-FOREIGN KEY (PartID) REFERENCES PartNo(PartID)
+FOREIGN KEY (StockID) REFERENCES Stock(StockID)
 );
