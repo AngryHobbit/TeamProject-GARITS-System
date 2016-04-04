@@ -33,7 +33,7 @@ Customer.Telephone, Vehicles.RegNo , Vehicles.Make, Vehicles.Model
 FROM Jobs
 JOIN Customer
 ON Jobs.CustomerID = Customer.CustomerID
-JOIN vehicles
+JOIN Vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 WHERE Jobs.JobID = 1;
 
@@ -69,7 +69,7 @@ Vehicles.RegNo, Vehicles.Make, Vehicles.Model
 FROM Jobs
 JOIN Customer
 ON Jobs.CustomerID = Customer.CustomerID
-JOIN vehicles
+JOIN Vehicles
 ON Customer.CustomerID = vehicles.CustomerID
 WHERE Jobs.JobID = 1;
 
