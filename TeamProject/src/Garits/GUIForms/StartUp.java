@@ -100,10 +100,12 @@ public class StartUp extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         DBConnection DBC = new DBConnection();
-        DBC.writeToDatabase(jUsername.getText(), jPassword.getText());
-        JOptionPane.showMessageDialog(null,"Account has been Registered");
-        this.dispose();
-
+        
+        if(DBC.writeToDatabase(jUsername.getText(), jPassword.getText()) == true)
+        {
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**

@@ -6,6 +6,7 @@
 package Garits.GUIForms;
 import Garits.GUIForms.Panels.*;
 import Garits.*;
+import java.sql.Connection;
 
 
 /**
@@ -14,12 +15,18 @@ import Garits.*;
  */
 public class MainMenu extends javax.swing.JFrame {
 
+    Connection Conn = new DBConnection().connect();
+    
+    
     /**
      * Creates new form MainMenu
      */
+    
+    public static String JobRole;
+    
     public MainMenu() {
         initComponents();
-        addPanel();
+       setLocationRelativeTo(this);
         
     }
 
@@ -54,6 +61,7 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Login login = new Login();
@@ -105,20 +113,29 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
-     private void addPanel(){
+     public void AddPanel(String role){
+         
+         
+        if(role.equals("Administrator")) {
         AdminPanel Adpane = new AdminPanel();
-       getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 790, 390));
-       
-       FranchiseePanel Frpane = new FranchiseePanel();
-       //getContentPane().add(Frpane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 790, 390));
-       
-       MechanicPanel Mepane = new MechanicPanel();
-       //getContentPane().add(Mepane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
-       
-       ReceptionistPanel Repane = new ReceptionistPanel();
-       //getContentPane().add(Repane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
-        
+        getContentPane().add(Adpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 790, 390));
+        }
+        else if(role.equals("Franchisee"))
+        {
+           FranchiseePanel Frpane = new FranchiseePanel();
+            getContentPane().add(Frpane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 790, 390)); 
+        }
+        else if(role.equals("Mechanic"))
+                {
+             MechanicPanel Mepane = new MechanicPanel();
+            getContentPane().add(Mepane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
+                }
+        else if(role.equals("Receptionist")){
+            ReceptionistPanel Repane = new ReceptionistPanel();
+            getContentPane().add(Repane,new org.netbeans.lib.awtextra.AbsoluteConstraints(50,60,790,390));
+        }
     }
+     
 
    
 }

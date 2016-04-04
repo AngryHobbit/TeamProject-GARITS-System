@@ -19,10 +19,12 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
+    
+    
     Connection conn = new DBConnection().connect();
     public Login() {
         initComponents();
-        
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -93,25 +95,27 @@ public class Login extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
 
+        
         String sql = "SELECT * from Staff where Login=? and Password=?";
         try
         {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,jUsername.getText());
             ps.setString(2,jPassword.getText());
+            
             ResultSet rs = ps.executeQuery();
-
-            if(rs.next())
+            
+            while(rs.next())
             {
                 
                 this.dispose();
                 MainMenu mm = new MainMenu();
                 mm.show();
+                mm.AddPanel(rs.getString(4));
+                System.out.println(rs.getString(4));
+
             }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Username & Password Invalid");
-            }
+            
         }
         catch(Exception e)
         {

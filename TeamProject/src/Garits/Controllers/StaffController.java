@@ -9,6 +9,7 @@ import Garits.DBConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,43 +17,24 @@ import java.sql.Statement;
  */
 public class StaffController {
     
-    String Forename;
-    String Surname;
-    String JobRole;
-    String LabourRate;
-    String Login;
-    String Password;
-    
+  
     Connection conn = new DBConnection().connect();
-    
-    private void GetStaffRecords()
-    {
-        try{
-            
-        Statement sta = conn.createStatement();
-        String get = "Search * from Staff";
-        sta.executeUpdate(get);
-         ResultSet rs = sta.executeQuery(get);
-        
-         while(rs.next())
-         {
-             
-         }
-        }
-        catch(Exception e)
-        {
-            
-        }
-    }
     
     public void AddANewUser(String forename,String surname,String JobRole,String LabourRate,String Login,String Password)
     {
         try
         {
-        Statement sta = conn.createStatement();
-        String insert = "INSERT INTO Staff (Forename,Surname,JobRole,Login,Password) VALUES('"+forename+"','"+surname+"','"+LabourRate+"','"+Login+"','"+Password+"');";
-        sta.executeUpdate(insert);
-        sta.executeBatch();
+           
+            if(Login.equals("") || Password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please Enter a username or password");
+            }
+            else
+            { 
+                Statement sta = conn.createStatement();
+                String insert = "INSERT INTO Staff (Forename,Surname,JobRole,Login,Password) VALUES('"+forename+"','"+surname+"','"+LabourRate+"','"+Login+"','"+Password+"');";
+                sta.executeUpdate(insert);
+                System.out.println("The Admin has created a User Account");
+            }
         }
         catch(Exception e)
         {

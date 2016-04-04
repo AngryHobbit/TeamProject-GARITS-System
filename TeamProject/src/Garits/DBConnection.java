@@ -23,7 +23,8 @@ import javax.swing.JOptionPane;
 public class DBConnection {
 
     private Connection DBConnection;
-
+    
+    
     public Connection connect() {
         
         boolean connected = false;
@@ -54,7 +55,7 @@ public class DBConnection {
         return DBConnection;
     }
     
-    public void writeToDatabase(String Login,String password)
+    public boolean writeToDatabase(String Login,String password)
     {
         try
         {
@@ -62,16 +63,29 @@ public class DBConnection {
             DBConnection = (Connection) DriverManager.getConnection(db,"root","root");
             System.out.println("Connection Passed");
             
-            Statement sta = DBConnection.createStatement();
-            String insert ="INSERT INTO Staff (Forename,Surname,JobRole,Login,Password) VALUES('Admin','Admin','Administrator','"+Login+"','"+password+"');";
-            sta.executeUpdate(insert);
+            if(Login.equals("") || password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please Enter a Username and Passord into the fields");
+                return false;
+            }
+            else
+            {
+                Statement sta = DBConnection.createStatement();
+                String insert ="INSERT INTO Staff (Forename,Surname,JobRole,Login,Password) VALUES('Admin','Admin','Administrator','"+Login+"','"+password+"');";
+                sta.executeUpdate(insert);
+                JOptionPane.showMessageDialog(null,"Account has been Registered");
+                System.out.println("Account has been registered");
+                
+                Login log = new Login();
+                log.show();
+                return true;
+            }
             
-            //System.out.println("Account has been registered");
         }
         catch(Exception e)
         {
            System.out.println(e);
         }
+        return false;
     }
     
     
